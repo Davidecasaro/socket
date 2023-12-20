@@ -1,30 +1,30 @@
 import json
 
-primoN=float(input("inserire numero"))
-oper=input("inserire l'operatore (+,-,*,/,%)")
-secN=float(input("inserire il secondo numero"))
-mess={
-    'primoNumero':primoN,
-    'operazione':oper,
-    'secondoNumero':secN
+primoNumero=float(input("inserire numero"))
+operazione=input("inserire l'operatore (+,-,*,/,%)")
+secondoNumero=float(input("inserire il secondo numero"))
+message={
+    'primoNumero':primoNumero,
+    'operazione':operazione,
+    'secondoNumero':secondoNumero
     }
-mess=json.dumps(mess) #trasforma l'oggetto in una stringa
+message=json.dumps(message) #trasforma l'oggetto in una stringa
 s=socket.socket
-s.sendall(mess.encode("UTF-8"))
+s.sendall(message.encode("UTF-8"))
 data=s.recv(1024)
 print("risultato: ",data.decode())
 
 data=cs.recv(1024)
 # if len(data)==0:
 while():
-    if(oper=='+'):
+    if(operazione=='+'):
 
-    elif(oper=='-'):
+    elif(operazione=='-'):
 
-    elif(oper=='*'):
+    elif(operazione=='*'):
 
-    elif(oper=='/'):
+    elif(operazione=='/'):
 
-    elif(oper=='%')
+    elif(operazione=='%')
 
     else
