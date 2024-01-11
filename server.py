@@ -3,20 +3,18 @@ import socket
 SERVER_IP="127.0.0.1"
 SERVER_PORT=5005
 BUFFER_SIZE=1024
-NUM_MESSAGES=5
 
 #creazione socket
 sock=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+sock.bind((SERVER_IP,SERVER_PORT))
 
-for i in range(NUM_MESSAGES):
-    #invio del messaggio al server
-    message="ping"
-    sock.sendto(message.encode(),SERVER_IP,SERVER_PORT)
-    print(f"messaggio inviato al server:{message}")
+print("server in attesa di messaggi...")
 
-    #ricezione della risposta dal server
-    data,addr=sock.recvfrom(BUFFER_SIZE)
-    print(f"messaggio ricevuto dal server {addr}:{data.decode()}")
+while True:
+    #ricezione dei dati dal client
+    data, addr=sock.recvfrom(BUFFER_SIZE)
+    print(f"messaggio ricevuto dal client {addr}: {data.decode()}")
 
-#chiusura del socket
-sock.close()
+    #invio di una risposta al client
+    reply="pong"
+    sock.sendto(reply.encode(),addr)
