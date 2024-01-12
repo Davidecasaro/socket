@@ -11,7 +11,7 @@ sock=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
 for i in range(NUM_MESSAGES):
     #invio del messaggio al server
     message="ping"
-    sock.sendto(message.encode(),SERVER_IP,SERVER_PORT)
+    sock.sendto(message.encode(),(SERVER_IP,SERVER_PORT))
     print(f"messaggio inviato al server:{message}")
 
     #ricezione della risposta dal server
