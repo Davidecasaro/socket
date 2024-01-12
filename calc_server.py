@@ -29,8 +29,8 @@ while True:
         risultato=primoNumero*secondoNumero
     elif(operazione=='/'):
         if(secondoNumero!=0):
-            risultato=primoNumero+secondoNumero
+            risultato=primoNumero/secondoNumero
     elif(operazione=='%'):
         risultato=primoNumero%secondoNumero
-            
+
     sock.sendto((str(risultato)).encode(),addr)
